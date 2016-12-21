@@ -73,7 +73,7 @@ int main()
             //Write dx data
             mouseData[X_L] = (uint8)dx;
             mouseData[X_H] = dx >> 8;
-            CyDelay(1);
+            //CyDelay(1);
         }
     }
     return 0;
