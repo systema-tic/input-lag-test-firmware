@@ -7,15 +7,15 @@ For details, please see the article below.(Sorry this article is written in Japa
 Http://logical-gaming.blogspot.jp/2014/10/blog-post.html
 
 ----Required Environment----
-ÅE Microcomputer board
+¬Å# Microcomputer board
 CY8CKIT-059 PSoC 5LP Prototyping Kit.
 
 * For other PSoC 5LP boards, it should work if you set the target device and pin assign according to board configuration (unverified).
 
-ÅE MicroUSB cable
+¬Å# MicroUSB cable
 In this firmware, since the USB function of this microcomputer is used, MicroUSB cable is necessary.
 
-ÅE Firmware programmer
+¬Å# Firmware programmer
 PSoC Creator builds and writes the firmware.
 PSoC Creator can be obtained for free, but user registration is required.
 I have confirmed the validation with PSoC Creator 3.3 CP 3 (3.3.0.9604).
