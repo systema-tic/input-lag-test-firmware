@@ -1,38 +1,42 @@
-FPS�Ȃǂ̃Q�[���̓��͒x���𑪒肷�邽�߂̃t�@�[���E�F�A�ł��D
+FPSなどのゲームの入力遅延を測定するためのファームウェアです．
 
-PC����͕��ʂ�USB�}�E�X�̂悤�Ɍ����C�����Ń|�C���^�����E�ɓ������܂��D
-���̎��C�|�C���^�𓮂����Ă��鎞��LED��ON�ɂȂ�C�����Ă��Ȃ�����LED��OFF�ɂȂ�悤�ȓ�������܂��D
-LED�����肾�����^�C�~���O����C�f�B�X�v���C�ɓ��������f����鎞�Ԃ��ϑ����邱�ƂŁCUSB�f�o�C�X���f�B�X�v���C�܂łɂ���������������(���͒x��)�𑪂邱�Ƃ��ł��܂��D���͒x���͐�ms���琔�\ms���x�Ȃ̂ŁC1000fps���炢�̃t���[�����[�g�ŎB�e�ł��鍂���x�J�������g���ăR�}���𐔂��邱�Ƃő��邱�Ƃ��ł��܂��D����Nikon 1 V1(1200fps)���g�p���Ă��܂����C���̋@��ł���fps�B�e���\�ł���Α���ł���Ǝv���܂��D
+PCからは普通のUSBマウスのように見え，自動でポインタを左右に動かします．
+この時，ポインタを動かしている時はLEDがONになり，動いていない時はLEDがOFFになるような動作をします．
+LEDが光りだしたタイミングから，ディスプレイに動きが反映される時間を観測することで，
+USBデバイス→ディスプレイまでにかかった処理時間(入力遅延)を測ることができます．
+入力遅延は数msから数十ms程度なので，1000fpsくらいのフレームレートで撮影できる高速度カメラを
+使ってコマ数を数えることで測ることができます．
+私はNikon 1 V1(1200fps)を使用していますが，他の機種でも高fps撮影が可能であれば測定できると思います．
 
-�ڂ����͉��̋L�������ĉ������D
+詳しくは下の記事を見て下さい．
 http://logical-gaming.blogspot.jp/2014/10/blog-post.html
 
-���p�ӂ������
-�E�}�C�R���{�[�h
-CY8CKIT-059 PSoC 5LP Prototyping Kit�œ��삵�܂��D
-CY8CKIT-059�́C�d�q���i�̔��T�C�g�Ȃǂ�1500�~�قǂōw�����邱�Ƃ��ł��܂��D
-�H���d�q�̔̔��y�[�W: http://akizukidenshi.com/catalog/g/gM-09432/
+■用意するもの
+・マイコンボード
+CY8CKIT-059 PSoC 5LP Prototyping Kitで動作します．
+CY8CKIT-059は，電子部品販売サイトなどで1500円ほどで購入することができます．
+秋月電子の販売ページ: http://akizukidenshi.com/catalog/g/gM-09432/
 
-�����̑���PSoC 5LP�{�[�h�ł́C�{�[�h�̍\���ɍ��킹�đΏۃf�o�C�X�̐ݒ�ƁC�s���A�T�C�����s���Γ��삷��͂��ł�(������)�D
+※その他のPSoC 5LPボードでは，ボードの構成に合わせて対象デバイスの設定と，ピンアサインを行えば動作するはずです(未検証)．
 
-�EMicroUSB�P�[�u��
-���̃t�@�[���E�F�A�ł́C���̃}�C�R����USB�@�\���g���̂ŁCMicroUSB�P�[�u�����K�v�ł��D
+・MicroUSBケーブル
+このファームウェアでは，このマイコンのUSB機能を使うので，MicroUSBケーブルが必要です．
 
-�E�t�@�[���E�F�A�������ݗp�\�t�g�E�F�A
-PSoC Creator�Ńt�@�[���E�F�A���r���h���C�������݂܂��D
-PSoC Creator�͖����œ��肷�邱�Ƃ��ł��܂����C���[�U�o�^���K�v�ł��D
-PSoC Creator 3.3 CP3 (3.3.0.9604)�œ���m�F���Ă��܂��D
+・ファームウェア書き込み用ソフトウェア
+PSoC Creatorでファームウェアをビルドし，書き込みます．
+PSoC Creatorは無料で入手することができますが，ユーザ登録が必要です．
+PSoC Creator 3.3 CP3 (3.3.0.9604)で動作確認しています．
 
-���t�@�[���E�F�A�̏������ݕ��@(�C���X�g�[�����@)
-1.CY8CKIT-059��USB�ɐڑ����܂�(��ɋ��F��4�{����������Ă��鑤��USB�|�[�g�ɍ�������ŉ�����)�D
-2.���߂Đڑ������ꍇ�̓h���C�o���C���X�g�[�������܂ő҂��܂��D
-3.PSoC Creator���N�����܂��D
-4.File > Open > Projects/Workspace�������܂��D
-5./USBFS16Bit.cydsn/USBFS16Bit.cyprj���J���܂��D
-6.�t�@�C�����J������CCtrl+F5�������ƃr���h�Ə������݂��s���܂�(�r���h�ɂ͐���������܂�)�D
-7.�������݂��I�������CY8CKIT-059��USB���甲���܂��D
-8.��̔��Α��̃R�l�N�^��MicroUSB�P�[�u���ڑ����C�P�[�u����USB�|�[�g�ڑ����ĉ������D
+■ファームウェアの書き込み方法(インストール方法)
+1.CY8CKIT-059をUSBに接続します(基板に金色の4本線が書かれている側をUSBポートに差し込んで下さい)．
+2.初めて接続した場合はドライバがインストールされるまで待ちます．
+3.PSoC Creatorを起動します．
+4.File > Open > Projects/Workspaceを押します．
+5./USBFS16Bit.cydsn/USBFS16Bit.cyprjを開きます．
+6.ファイルが開けたら，Ctrl+F5を押すとビルドと書き込みが行われます(ビルドには数分かかります)．
+7.書き込みが終わったらCY8CKIT-059をUSBから抜きます．
+8.基板の反対側のコネクタにMicroUSBケーブル接続し，ケーブルをUSBポート接続して下さい．
 
-�h���C�o���C���X�g�[������CLED���_�ł��Ȃ���|�C���^�����E�ɓ����΃t�@�[���E�F�A������ɓ��삵�Ă��܂��D
-�_�ł��Ă邯�ǃ|�C���^�������Ȃ��ꍇ�́CMicroUSB�P�[�u���𔲂���PC���ċN�����āC�N����ɍĐڑ�����Ǝ��邱�Ƃ�����悤�ł��D
+ドライバがインストールされ，LEDが点滅しながらポインタが左右に動けばファームウェアが正常に動作しています．
+点滅してるけどポインタが動かない場合は，MicroUSBケーブルを抜いてPCを再起動して，起動後に再接続すると治ることがあるようです．
 
