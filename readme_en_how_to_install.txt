@@ -1,10 +1,15 @@
 This firmware is input-lag measurement software for PC games.
 
-It looks like a normal USB mouse from the PC, and moves the pointer to the left and right automatically.At this time, the LED turns on when the pointer is moving, and turns off the LED when it is not moving.
-By observing the time at which the movement is drew on the display from the timing when the LED glows up, it is possible to measure the processing time (input-lag) from USB device to display. Since the input lag is about several ms to several tens ms, it can be measured by counting the number of frames using a high-speed camera that can shoot at a frame rate of about 1000 fps. I am using Nikon 1 V1 (1200 fps), but I think that it can be measured if other models can high fps shoot.
+It looks like a normal USB mouse from the PC, and moves the pointer to the left and right automatically. 
+At this time, the LED turns on when the pointer is moving, and turns off the LED when it is not moving.
+By observing the time at which the movement is drew on the display from the timing when the LED glows up, 
+it is possible to measure the processing time (input-lag) from USB device to display. Since the input lag is 
+about several ms to several tens ms, it can be measured by counting the number of frames using a high-speed
+camera that can shoot at a frame rate of about 1000 fps. I am using Nikon 1 V1 (1200 fps), but I think that it
+can be measured if other models can high fps shoot.
 
 For details, please see the article below.(Sorry this article is written in Japanese.)
-Http://logical-gaming.blogspot.jp/2014/10/blog-post.html
+http://logical-gaming.blogspot.jp/2014/10/blog-post.html
 
 ----Required Environment----
 # Microcomputer board
